@@ -1,0 +1,70 @@
+package n3ejercicio3;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.jar.Attributes.Name;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		 String dirctori = System.getProperty("usr.dir");
+		 String countri = dirctori + File.separator + countries.txt;
+		 File file = new File("C:\\Users\\java\\eclipse-workspace\\Sprint1\\src\\n3ejercicio3\\countries.txt"); 
+		 Scanner sc = new Scanner(System.in);
+		 String name ="";
+		 int score = 0;
+		 try {
+			BufferedReader reader = 
+					  new BufferedReader(new FileReader(file));
+			String line;
+			
+			HashMap<String, String> countriesData = new HashMap<String, String>();
+			while((line = reader.readLine()) != null) {
+				String[] content = line.split(" ");
+				countriesData.put(content[0], content[1]);
+				 
+			}
+			System.out.println("Nom usuari :");
+			name = sc.nextLine();
+			
+			for(int i = 0; i<10; i++) {
+			
+				Object[] arrayObjectes = countriesData.keySet().toArray();
+				Object key = arrayObjectes[new Random().nextInt(arrayObjectes.length)];
+				System.out.println(key);
+				System.out.println("Introdueix el nom de la capital :");
+				String capital = sc.nextLine();
+				
+				if(capital.equalsIgnoreCase(countriesData.get(key))) {
+					System.out.println("Puntos +1");
+					score++;
+				}else {
+					System.err.println("No");
+				}
+			}
+			
+		} catch (FileNotFoundException e) {	
+			
+			e.printStackTrace();
+		} catch (IOException e) {		
+			e.printStackTrace();
+		}
+		 try {
+			 FileWriter f = new FileWriter("C:\\Users\\java\\eclipse-workspace\\Sprint1\\src\\n3ejercicio3\\count.txt",true);
+			 f.write(name + ", Score = " + score + "\n");
+			 f.close();
+		 }catch (Exception e) {
+			
+		}
+		 
+ 	}
+
+}

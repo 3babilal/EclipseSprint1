@@ -1,0 +1,13 @@
+package n2ejercicio1;
+
+ class VendaBuidaException extends Exception{
+	 private String mensaje;
+
+	public VendaBuidaException(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	
+	 
+	
+}

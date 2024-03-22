@@ -1,0 +1,33 @@
+package n3ejercicio2;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		List<Integer> list = new ArrayList<>();
+		int num1 = 1;
+		int num2 = 2;
+		int num3 = 3;
+		list.add(num1);
+		list.add(num2);
+		list.add(num3);
+		
+		System.out.println(list);
+		
+		List<Integer> listInversa = new ArrayList<>(list);
+		//Collections.reverse(listInversa);
+		ListIterator listIteator = list.listIterator(list.size());
+		while(listIteator.hasPrevious()) {
+			//System.out.println(listIteator.previous());
+			listInversa.add(listIteator.previous());
+		}
+		
+		System.out.println(listInversa);
+	}
+
+}

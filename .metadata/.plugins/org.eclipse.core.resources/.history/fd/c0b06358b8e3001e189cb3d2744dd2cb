@@ -1,0 +1,54 @@
+package n3ejercicio1;
+
+import java.util.ArrayList;
+
+public class Month {
+
+	public static void main(String[] args) {
+		
+		
+		Mes enero = new Mes("Enero");
+		Mes febrero = new Mes("Febrero");
+		Mes marzo = new Mes("Marzo");
+		Mes abril = new Mes("Abril");
+		Mes mayo = new Mes("Mayo");
+		Mes junio = new Mes("Junio");
+		Mes julio = new Mes("Julio");
+		Mes septiembre = new Mes("Septiembre");
+		Mes octubre = new Mes("Octubre");
+		Mes noviembre = new Mes("Noviembre");
+		Mes diciembre = new Mes("Diciembre");
+		
+		private String name;
+		ArrayList<Month> mesos = new ArrayList<Month>();
+		public Mes(String name) {
+			this.name = name;
+			
+		}
+		public void addMonth(Mes month) {
+			mesos.add(month);
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public ArrayList<Mes> getMesos() {
+			return mesos;
+		}
+		public void setMesos(ArrayList<Mes> mesos) {
+			this.mesos = mesos;
+		}
+		@Override
+		public String toString() {
+			return "Month [name=" + name + ", mesos=" + mesos + "]";
+		}
+		
+		
+	}
+
+	
+	}
+
+}
